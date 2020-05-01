@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import commands from './commands.json';
+import commands from './Commands.json';
 import './Style.css';
 import CommandCard from './Components/CommandCard';
 import sleep from '../../util/sleep';
