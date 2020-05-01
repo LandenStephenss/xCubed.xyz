@@ -1,5 +1,5 @@
 import React from 'react';
-import './Style.css'
+import './style.css'
 import Button from '../../Components/Button'
 export default React.memo(() => (
     <main>
