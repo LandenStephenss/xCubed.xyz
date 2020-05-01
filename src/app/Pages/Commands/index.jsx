@@ -47,9 +47,6 @@ export default class Commands extends PureComponent {
 		const { searchQuery, transitionState, currentCategory } = this.state;
 		return (
 			<div>
-				<div className="categorySelector">
-					<button>All</button>
-				</div>
 				<br />
 				<div className="commands">
 					<textarea
