@@ -1,0 +1,45 @@
+{
+  "name": "xcubed.xyz",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/plugin-proposal-export-default-from": "^7.8.3",
+    "@babel/preset-react": "^7.9.4",
+    "axios": "^0.19.2",
+    "babel-loader": "^8.1.0",
+    "body-parser": "^1.19.0",
+    "browser-sync": "^2.26.7",
+    "browser-sync-webpack-plugin": "^2.2.2",
+    "btoa": "^1.2.1",
+    "connect-mongo": "^3.2.0",
+    "css-loader": "^3.5.2",
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "html-webpack-plugin": "^4.2.0",
+    "mini-css-extract-plugin": "^0.9.0",
+    "mongo-connect": "0.0.6",
+    "node-fetch": "^2.6.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.3",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-redux": "^7.2.0",
+    "react-router-dom": "^5.1.2",
+    "redux": "^4.0.5",
+    "redux-thunk": "^2.3.0",
+    "sass": "^1.26.3",
+    "sass-loader": "^8.0.2",
+    "string.prototype.matchall": "^4.0.2",
+    "workbox-webpack-plugin": "^5.1.2"
+  },
+  "devDependencies": {
+    "webpack": "^4.42.1"
+  },
+  "scripts": {
+    "dev": "node ./src/server/index.js --dev",
+    "build": "./node_modules/.bin/webpack-cli -p --config ./webpack/webpack.config.js --display-error-details"
+  },
+  "author": "Olykir",
+  "license": "ISC"
+}
