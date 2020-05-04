@@ -13,7 +13,7 @@ export default class Leaderboard extends PureComponent {
         }
     }
     async componentDidMount() {
-        await fetch("http://localhost/api/v1/users/topLevels")
+        await fetch("https://xcubed.xyz/api/v1/users/topLevels")
             .then((res) => res.json())
             .then((res) => {
                 this.state.items = res.users;
