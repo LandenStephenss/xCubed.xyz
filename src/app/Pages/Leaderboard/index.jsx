@@ -1,7 +1,7 @@
 import React, {
     PureComponent
 } from 'react';
-import Card from './Components/Card.jsx'
+import LeaderboardCard from './Components/Card.jsx'
 
 export default class Leaderboard extends PureComponent {
     constructor() {
@@ -13,22 +13,34 @@ export default class Leaderboard extends PureComponent {
         }
     }
     async componentDidMount() {
-        var result;
         await fetch("http://localhost/api/v1/users/topLevels")
             .then((res) => res.json())
             .then((res) => {
-                console.log(res)
                 this.state.items = res.users;
-                result = res;
+                this.state.isLoaded = true;
+                console.log('Loaded')
+                this.forceUpdate()
         })
-        console.log(result)
     }
     render() {
+        if(!this.state.isLoaded) {
+            return (
+                <div style={{display: "flex", justifyContent: "center"}}>
+                    <p style={{color: "white"}}>Loading...</p>
+                </div>
+            )
+        } else {
+            return (
+                <>
+                <div style={{display: "flex", justifyContent: "center", position: "relative", top: "20px", flexWrap: "wrap"}}>
+                    <p style={{color: "white", fontSize: "22px", width: "100%", textAlign: "center"}}>Top 100 Levels!</p>
+                    {this.state.items.map(item => (
+                        <LeaderboardCard user={item} rank={this.state.items.indexOf(item)} />
+                    ))}
+                </div>
 
-        return ( 
-            <div>
-                <p>{this.state.items}</p>
-            </div>
-        )
+                </>
+            )
+        }
     }
 }
