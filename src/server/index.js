@@ -6,12 +6,17 @@ const bodyParser = require("body-parser")
 const session = require('express-session');
 const MongoStore = require("connect-mongo")(session);
 const app = express();
+const cors = require("cors");
+const {
+  v1
+} = require("./api")
 app.listen(config.port, () => {
-    console.log(`Listening to port ${config.port}`)
-    if(process.env.NODE_ENV === "development") {
-        require("./webpack")
-    }
+  console.log(`Listening to port ${config.port}`)
+  if (process.env.NODE_ENV === "development") {
+    require("./webpack")
+  }
 });
+app.use(cors())
 app.use(bodyParser.json())
 // Static Pages
 app.use("/", express.static(__dirname + "/build"));
@@ -37,6 +42,7 @@ app.use(session({
 
 
 app.use("/oauth", Routers.OAuth)
+v1.call(this, app, '/api/v1')
 app.get('*', (request, response) => {
-    response.sendFile(`${__dirname}/build/index.html`);
-  });
+  response.sendFile(`${__dirname}/build/index.html`);
+});

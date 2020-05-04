@@ -20,7 +20,7 @@ export default () => {
             <Route exact strict component={() => <Home />} path="/" />
             <Route component={() => <Commands />} path="/commands" />
             <Route component={() => <Staff />} path="/staff" />
-            <Route component={() => <Leaderboard />} path="/leaderboard:id" />
+            <Route component={() => <Leaderboard />} path="/leaderboard" />
             <Route component={() => <Rules />} path="/rules" />
             <Route component={() => <About />} path="/about" />
             <Route component={() => <Appeals />} path="/appeals/" />

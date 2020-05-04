@@ -10,5 +10,7 @@ export default React.memo(() => (
             <Button className="HeaderButton" link="https://discordapp.com/oauth2/authorize?client_id=626630111004852224&scope=bot&permissions=469822503">Add to discord!</Button>
             <Button className="HeaderButton">See features</Button>
         </div>
+        
+
     </main>
 ))

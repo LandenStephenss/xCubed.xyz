@@ -18,3 +18,22 @@
     width: 100%;
 }
 
+.Features {
+    display: flex;
+    justify-content: space-around;
+    width: 80%;
+    left: 10%;
+    position: relative;
+    top: 50px;
+}
+
+.FeatureCard {
+    background-color: rgba(0,0,0,.2);
+    padding: 2px;
+    border-radius: 4px;
+    color: white;
+}
+
+.FeatureHeader {
+    font-size: 18px;
+}
