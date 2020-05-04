@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import commands from './commands.json';
+import commands from './Commands.json';
 import './Style.css';
 import CommandCard from './Components/CommandCard';
 import sleep from '../../util/sleep';
@@ -47,9 +47,6 @@ export default class Commands extends PureComponent {
 		const { searchQuery, transitionState, currentCategory } = this.state;
 		return (
 			<div>
-				<div className="categorySelector">
-					<button>All</button>
-				</div>
 				<br />
 				<div className="commands">
 					<textarea
