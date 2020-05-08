@@ -1,14 +1,14 @@
-import React, { lazy, Suspense } from 'react';
-import { Switch, Route } from 'react-router-dom';
+import React, { lazy, Suspense } from "react";
+import { Switch, Route } from "react-router-dom";
 
 // Pages
-const Home = lazy(() => import('./Pages/Home'));
-const Commands = lazy(() => import('./Pages/Commands'));
-const Staff = lazy(() => import('./Pages/Staff'));
-const Leaderboard = lazy(() => import('./Pages/Leaderboard'))
-import NavBar from './Components/NavBar';
-import Footer from './Components/Footer';
-import './style.css';
+const Home = lazy(() => import("./Pages/Home"));
+const Commands = lazy(() => import("./Pages/Commands"));
+const Staff = lazy(() => import("./Pages/Staff"));
+const Leaderboard = lazy(() => import("./Pages/Leaderboard"));
+import NavBar from "./Components/NavBar";
+import Footer from "./Components/Footer";
+import "./style.css";
 
 export default () => {
   return (
@@ -21,19 +21,10 @@ export default () => {
             <Route component={() => <Commands />} path="/commands" />
             <Route component={() => <Staff />} path="/staff" />
             <Route component={() => <Leaderboard />} path="/leaderboard" />
-            <Route component={() => <Rules />} path="/rules" />
-            <Route component={() => <About />} path="/about" />
-            <Route component={() => <Appeals />} path="/appeals/" />
-            <Route component={() => <Admin />} path="/admin" />
-            <Route component={() => <Terms />} path="/terms" />
-            <Route component={() => <Landing />} path="/landing" />
-            <Route component={() => <Refunds />} path="/refunds" />
-            <Route component={() => <Privacy />} path="/privacy" />
           </Suspense>
         </Switch>
         <Footer />
       </div>
-      <div id='modals' />
     </>
   );
 };
