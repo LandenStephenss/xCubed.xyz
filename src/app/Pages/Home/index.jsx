@@ -21,21 +21,7 @@ export default React.memo(() => (
       >
         Add to discord!
       </Button>
-      {/* <Button
-        className="HeaderButton"
-        onClick={() => {
-          DivToRef.current.scrollIntoView({
-              behavior: "smooth",
-              block: "nearest"
-          })
-        }}
-      >
-        See features
-      </Button> */}
     </div>
-    <br />
-    <br />
-    <br />
     <div
       style={{ display: "flex", justifyContent: "center", flexWrap: "wrap" }}
     >
@@ -48,7 +34,6 @@ export default React.memo(() => (
           marginBottom: "-20px",
           marginTop: "20px",
         }}
-        ref={DivToRef}
       >
         Features!
       </p>
@@ -91,8 +76,5 @@ export default React.memo(() => (
         />
       </div>
     </div>
-    <br />
-    <br />
-    <br />
   </main>
 ));
