@@ -28,23 +28,40 @@ router.get("/callback", async (req, res) => {
             Authorization: `Basic ${creds}`
         }
     }).then((res) => res.json())
-    console.log(req)
 
 
     var user = await fetch("https://discordapp.com/api/users/@me", {
         headers: {
-            Authorization: `Bearer ${req.access_token}`
+            Authorization: `${req.token_type} ${req.access_token}`
         }
     }).then((res) => res.json())
-    req.session.user = {
-        ...user,
-        isAdmin: config.admins.includes(user.id),
-    }
+    res.cookie("access_token", req.access_token)
+    res.cookie("refresh_token", req.refresh_token)
     res.redirect("/")
 })
 
-router.get('/state', (req, res) => {
-    return res.json(req.session.user || null);
+router.get('/state', async (req, res) => {
+    var user = await fetch("https://discord.com/api/users/@me", {
+        headers: {
+            Authorization: `Bearer ${req.cookies.access_token}`
+        }
+    }).then(res => res.json())
+    var guilds = await fetch("https://discord.com/api/users/@me/guilds", {
+        headers: {
+            Authorization: `Bearer ${req.cookies.access_token}`
+        }
+    }).then(res => res.json())
+    if(user.message === undefined) {
+        return res.json({user: {...user, guilds}, loggedIn: true});
+    } else {
+        return res.json({message: user.message, loggedIn: false})
+    }
 });
+
+router.get("/logout", (req, res) => {
+    res.cookie("access_token", null)
+    res.cookie("refresh_token", null)
+    res.redirect("/")
+})
 
 module.exports = router;

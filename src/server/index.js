@@ -5,6 +5,7 @@ const Routers = require("./routers")
 const bodyParser = require("body-parser")
 const session = require('express-session');
 const MongoStore = require("connect-mongo")(session);
+const Cookies = require("cookie-parser")
 const app = express();
 const cors = require("cors");
 const {
@@ -16,6 +17,7 @@ app.listen(config.port, () => {
     require("./webpack")
   }
 });
+app.use(Cookies())
 app.use(cors())
 app.use(bodyParser.json())
 // Static Pages
