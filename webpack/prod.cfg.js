@@ -140,7 +140,7 @@ module.exports = {
           const sitemapTemplate = fs.readFileSync(path.resolve(appDir, 'sitemap.xml'), 'utf8');
           let sitemapLocations = '';
           for (const [ , match ] of appFile.matchAll(/path="(.*?)"/g)) {
-            sitemapLocations += `<url><loc>https://dankmemer.lol${match}</loc></url>`;
+            sitemapLocations += `<url><loc>https://xcubed.xyz${match}</loc></url>`;
           }
 
           fs.writeFileSync(

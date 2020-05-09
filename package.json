@@ -44,7 +44,7 @@
   },
   "scripts": {
     "dev": "node ./src/server/index.js --dev",
-    "build": "./node_modules/.bin/webpack-cli -p --config ./webpack/webpack.config.js --display-error-details"
+    "build": "webpack --config ./webpack/webpack.config.js --display-error-details"
   },
   "author": "Olykir",
   "license": "ISC"
