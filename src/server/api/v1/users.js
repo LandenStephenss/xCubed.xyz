@@ -18,8 +18,19 @@ module.exports = {
     topLevels: async (req, res) => {
         var arrayOfDb = await userDatabase.find().toArray()
         var SortedLB = arrayOfDb.sort((a, b) => b.levels.xp - a.levels.xp).slice(0, 100)
+        var test = [];
+        SortedLB.map((f) => test.push({
+            id: f._id,
+            levels: {
+                level: f.levels.level,
+                xp: f.levels.xp
+            },
+            avatar: f.avatar,
+            username: f.username
+        }))
+        console.log(test)
         res.json({
-            users: SortedLB
+            users: test
         })
     },
     fetchLevels: async (req, res) => {
