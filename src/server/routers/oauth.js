@@ -11,7 +11,7 @@ const router = Router();
 const btoa = require("btoa")
 
 
-var redirect = "https://discordapp.com/api/oauth2/authorize?client_id=626630111004852224&redirect_uri=https%3A%2F%2Flocalhost%2Foauth%2Fcallback&response_type=code&scope=identify%20email%20guilds"
+var redirect = "https://discord.com/api/oauth2/authorize?client_id=626630111004852224&redirect_uri=https%3A%2F%2Flocalhost%2Fapi%2Fv1%2Fcallback&response_type=code&scope=identify%20email%20guilds"
 
 router.get("/login", (req, res) => {
     res.redirect(redirect);
