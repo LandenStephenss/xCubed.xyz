@@ -50,7 +50,7 @@ export default class Leaderboard extends PureComponent {
             </p>
             {this.state.items.map((item) => (
               <LeaderboardCard
-                key={item._id}
+                key={item.id}
                 user={item}
                 rank={this.state.items.indexOf(item)}
               />

@@ -6,6 +6,7 @@ const Home = lazy(() => import("./Pages/Home"));
 const Commands = lazy(() => import("./Pages/Commands"));
 const Staff = lazy(() => import("./Pages/Staff"));
 const Leaderboard = lazy(() => import("./Pages/Leaderboard"));
+const GuildSelector = lazy(() => import("./Pages/Dashboard"))
 
 import NavBar from "./Components/NavBar";
 import Footer from "./Components/Footer";
@@ -23,6 +24,7 @@ export default () => {
               <Route component={() => <Commands />} path="/commands" />
               <Route component={() => <Staff />} path="/staff" />
               <Route component={() => <Leaderboard />} path="/leaderboard" />
+              <Route component={() => <GuildSelector />} path="/dashboard" />
               {/* TODO; dashboard, admin panel, proper leaderboard pages!*/}
             </Suspense>
           </Switch>

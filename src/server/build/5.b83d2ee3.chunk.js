@@ -1,0 +1,15 @@
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([[5],{
+
+/***/ "./src/app/Pages/Dashboard/index.jsx":
+/*!*******************************************!*\
+  !*** ./src/app/Pages/Dashboard/index.jsx ***!
+  \*******************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ \"./node_modules/react-router-dom/esm/react-router-dom.js\");\nclass Dashboard extends react__WEBPACK_IMPORTED_MODULE_0__[\"PureComponent\"]{constructor(props){super();this.state={loggedIn:true,guildID:props.match.params.id,guild:null,isOwner:true};}async componentDidMount(){}render(){return/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\",null,/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"p\",null,\"test\"));}}\n\n//# sourceURL=webpack:///./src/app/Pages/Dashboard/index.jsx?");
+
+/***/ })
+
+}]);

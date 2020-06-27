@@ -1,0 +1,13 @@
+.GuildCard {
+  color: white;
+  background-color: rgba(0, 0, 0, 0.1);
+  width: 250px;
+  text-align: center;
+  border-radius: 8px;
+}
+
+.Guilds {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
