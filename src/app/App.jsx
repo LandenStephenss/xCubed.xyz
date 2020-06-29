@@ -24,9 +24,10 @@ export default () => {
               <Route component={() => <Commands />} path="/commands" />
               <Route component={() => <Staff />} path="/staff" />
               <Route component={() => <Leaderboard />} path="/leaderboard" />
-              <Route component={() => <GuildSelector />} path="/dashboard" />
+              {/* <Route component={() => <GuildSelector />} path="/dashboard" /> */}
               {/* TODO; dashboard, admin panel, proper leaderboard pages!*/}
-            </Suspense>
+              {/* 404 Page TODO*/}
+             </Suspense>
           </Switch>
         </CookiesProvider>
         <Footer />

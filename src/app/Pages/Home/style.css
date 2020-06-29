@@ -64,9 +64,11 @@
 
 .DownArrow {
     width: 100px;
+    height: 100px;
     margin-top: 30px;
     filter: brightness(0) invert(.7);
-    animation: bounce infinite 1.5s
+    animation: bounce infinite 1.5s;
+    -webkit-user-drag: none;
 }
 
 @keyframes bounce {

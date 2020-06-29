@@ -62,7 +62,7 @@ const Footer = () => (
         color: "white",
         textDecoration: "none",
       }}
-      to="/leaderboard/all"
+      to="/leaderboard"
     >
       Leaderboard
     </NavLink>

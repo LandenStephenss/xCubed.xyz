@@ -2,17 +2,15 @@ import React from "react";
 import "./style.css";
 import Button from "../../Components/Button";
 import Feature from "./Components/Feature";
-import { useCookies } from 'react-cookie'
 
 class Home extends React.PureComponent {
   constructor() {
     super();
-
   }
   render() {
-    localStorage.setItem('access_token', 'test')
     return (
       <main>
+        <br />
         <br />
         <br />
         <div className="LandingHeader">
@@ -28,7 +26,7 @@ class Home extends React.PureComponent {
             className="HeaderButton"
             link="https://discordapp.com/oauth2/authorize?client_id=626630111004852224&scope=bot&permissions=469822503"
           >
-            Add to discord!
+            Add to Discord
           </Button>
         </div>
         <div
@@ -93,6 +91,5 @@ class Home extends React.PureComponent {
     );
   }
 }
-
 
 export default Home;
