@@ -85,7 +85,7 @@ class NavBar extends React.PureComponent {
     } else {
       // Desktop Nav
       return (
-        <div>
+        <div style={{position: "absolute", top: "0px"}}>
           <svg
             className="wave"
             xmlns="http://www.w3.org/2000/svg"
