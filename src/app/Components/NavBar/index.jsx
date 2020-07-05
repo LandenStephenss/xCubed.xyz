@@ -53,16 +53,25 @@ class NavBar extends React.PureComponent {
               d="M0,64L48,64C96,64,192,64,288,90.7C384,117,480,171,576,176C672,181,768,139,864,133.3C960,128,1056,160,1152,154.7C1248,149,1344,107,1392,85.3L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
             ></path>
           </svg>
-          <nav className="nav" style={{position: "absolute", left: "20px", top: "10px"}}>
+          <nav
+            className="nav"
+            style={{ position: "absolute", left: "20px", top: "10px" }}
+          >
             <div className="test">
               <span className="xNav">x³</span>
               <ul className="NavLinks">
-                <li className="NavItem" style={{top: "-10px", position: "relative"}}>
+                <li
+                  className="NavItem"
+                  style={{ top: "-10px", position: "relative" }}
+                >
                   <NavLink exact className="NavLink" to="/">
                     Home
                   </NavLink>
                 </li>
-                <li className="NavItem" style={{top: "-10px", position: "relative"}}>
+                <li
+                  className="NavItem"
+                  style={{ top: "-10px", position: "relative" }}
+                >
                   <NavLink exact className="NavLink" to="/commands">
                     Commands
                   </NavLink>
@@ -85,7 +94,7 @@ class NavBar extends React.PureComponent {
     } else {
       // Desktop Nav
       return (
-        <div style={{position: "absolute", top: "0px"}}>
+        <div>
           <svg
             className="wave"
             xmlns="http://www.w3.org/2000/svg"
