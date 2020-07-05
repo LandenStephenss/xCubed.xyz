@@ -1,50 +1,57 @@
-process.env.NODE_ENV = process.argv.includes('--dev') ? 'development' : 'production';
+process.env.NODE_ENV = process.argv.includes("--dev")
+  ? "development"
+  : "production";
 const express = require("express");
-const config = require("../../config.json")
-const Routers = require("./routers")
-const bodyParser = require("body-parser")
-const session = require('express-session');
+const config = require("../../config.json");
+const Routers = require("./routers");
+const bodyParser = require("body-parser");
+const session = require("express-session");
 const MongoStore = require("connect-mongo")(session);
-const Cookies = require("cookie-parser")
+const Cookies = require("cookie-parser");
 const app = express();
+const { readFileSync } = require("fs");
+require.extensions[".txt"] = (module, fileName) => {
+  module.exports = readFileSync(fileName, "utf8");
+};
 const cors = require("cors");
-const {
-  v1
-} = require("./api")
+const { v1 } = require("./api");
 app.listen(config.port, () => {
-  console.log(`Listening to port ${config.port}`)
+  console.log(`Listening to port ${config.port}`);
   if (process.env.NODE_ENV === "development") {
-    require("./webpack")
+    require("./webpack");
   }
 });
-app.use(Cookies())
-app.use(cors())
-app.use(bodyParser.json())
+app.use(Cookies());
+app.use(cors());
+app.use(bodyParser.json());
 // Static Pages
 app.use("/", express.static(__dirname + "/build"));
-app.use("/static", express.static(__dirname + "/../app/assets"))
+app.use("/static", express.static(__dirname + "/../app/assets"));
 // Redirects
 app.use("/support", (req, res) => res.redirect("https://discord.gg/kQUpSgw"));
-app.use("/donate", (req, res) => res.redirect("https://patreon.com/olykir"))
+app.use("/donate", (req, res) => res.redirect("https://patreon.com/olykir"));
 // i need to setup the database connection here i guess
 
+app.set("trust proxy", 1);
+app.use(
+  session({
+    secret: "tjos os a test",
+    name: "xCubedIsCool",
+    resave: false,
+    saveUninitialized: true,
 
-app.set('trust proxy', 1);
-app.use(session({
-  secret: 'tjos os a test',
-  name: 'xCubedIsCool',
-  resave: false,
-  saveUninitialized: true,
+    cookie: {
+      secure: process.env.NODE_ENV === "production",
+    },
+  })
+);
 
-  cookie: {
-    secure: process.env.NODE_ENV === 'production'
-  }
-}))
-
-
-
-app.use("/oauth", Routers.OAuth)
-v1.call(this, app, '/api/v1')
-app.get('*', (request, response) => {
+var ads = require("./ads.txt");
+app.use("/ads.txt", (req, res) => {
+  res.send(ads)
+});
+app.use("/oauth", Routers.OAuth);
+v1.call(this, app, "/api/v1");
+app.get("*", (request, response) => {
   response.sendFile(`${__dirname}/build/index.html`);
 });

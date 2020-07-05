@@ -1,0 +1,84 @@
+.underline {
+  text-decoration: underline;
+}
+
+.LandingHeader {
+  color: white;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.LandingHeaderTop {
+  position: relative;
+  top: 20px;
+  font-size: 26px;
+  text-align: center;
+  width: 100%;
+}
+
+.Features {
+  display: flex;
+  justify-content: space-around;
+  width: 80%;
+  left: 10%;
+  position: relative;
+  top: 50px;
+  flex-wrap: wrap;
+}
+
+.FeatureCard {
+  background-color: rgba(0, 0, 0, 0.2);
+  border: solid 1.5px rgba(0, 0, 0, 0.3);
+  padding: 8px;
+  border-radius: 4px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 200px;
+  height: 250px;
+  transition: transform 0.7s;
+  margin-bottom: 40px;
+}
+
+.FeatureRow {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  width: 100%;
+  margin-bottom: 40px;
+}
+
+.FeatureCard:hover {
+  transform: translateY(-10px);
+  transition: transform 0.7s;
+}
+
+.FeatureIcon {
+  width: 100px;
+  height: 100px;
+  filter: brightness(0) invert(0.7);
+}
+
+.DownArrow {
+  width: 100px;
+  height: 100px;
+  margin-top: 30px;
+  filter: brightness(0) invert(0.7);
+  animation: bounce infinite 1.5s;
+  -webkit-user-drag: none;
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(7px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
