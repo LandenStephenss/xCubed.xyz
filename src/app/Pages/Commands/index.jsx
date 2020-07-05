@@ -11,38 +11,78 @@ export default class Commands extends PureComponent {
     currentCategory: null,
   };
 
-  updateSearch(j) {
+  updateSearch(ev) {
     this.lastTyped = Date.now();
-    const { value } = j.target;
+    const { value } = ev.target;
 
-    if (value === this.state.searchQuery) return;
+    if (value === this.state.searchQuery) {
+      return;
+    }
+
     setTimeout(() => {
       const diff = Date.now() - this.lastTyped;
       if (diff > 300 && diff < 400) {
         this.lastTyped = Date.now();
-        this.setState({ transitionState: "fade-out" }, () => {
-          sleep(250).then(() => {
-            this.setState(
-              {
-                searchQuery: value.toLowerCase(),
-                currenyCategory: null,
-              },
-              () => {
-                this.setState({ transitionState: "fade-in" });
-              }
-            );
-          });
-        });
+        this.setState(
+          {
+            transitionState: "fade-out",
+          },
+          () =>
+            sleep(250).then(() =>
+              this.setState(
+                {
+                  searchQuery: value.toLowerCase(),
+                  currentCategory: null,
+                },
+                () =>
+                  this.setState({
+                    transitionState: "fade-in",
+                  })
+              )
+            )
+        );
       }
-    }, 300);
+    }, 350);
   }
 
   render() {
     const { searchQuery, transitionState, currentCategory } = this.state;
     return (
-      <div>
+      <div class="CommandsPage">
         <br />
-        <div className="commands">
+        <div className="commands" style={{ flexWrap: "wrap" }}>
+          {/* <div>
+            <button
+              className="CategoryButton"
+              onClick={() => (this.state.currentCategory = null)}
+            >
+              All
+            </button>
+            <button
+              className="CategoryButton"
+              onClick={() => (this.state.currentCategory = "moderation")}
+            >
+              Moderation
+            </button>
+            <button
+              className="CategoryButton"
+              onClick={() => (this.state.currentCategory = "information")}
+            >
+              Information
+            </button>
+            <button
+              className="CategoryButton"
+              onClick={() => (this.state.currentCategory = "levels")}
+            >
+              Levels
+            </button>
+            <button
+              className="CategoryButton"
+              onClick={() => (this.state.currentCategory = "currency")}
+            >
+              Currency
+            </button>
+          </div> */}
           <textarea
             placeholder="Search..."
             rows={1}
@@ -55,6 +95,7 @@ export default class Commands extends PureComponent {
             .filter(
               (command) =>
                 !searchQuery ||
+                command.help.category === this.state.currentCategory ||
                 command.config.aliases.includes(searchQuery) ||
                 command.help.description.toLowerCase().includes(searchQuery) ||
                 command.help.name.toLowerCase().includes(searchQuery)
@@ -70,40 +111,3 @@ export default class Commands extends PureComponent {
     );
   }
 }
-
-// export default class Commands extends PureComponent {
-
-//   render() {
-//     const { searchQuery, transitionState, currentCategory } = this.state;
-//     return (
-//       <div>
-//         <br />
-//         <div className="commands">
-//           <textarea
-//             placeholder="Search..."
-//             rows={1}
-//             className="SearchBar"
-//             onKeyUp={(ev) => this.updateSearch(ev)}
-//           />{" "}
-//         </div>{" "}
-//         <div className={`commands`}>
-//           {" "}
-//           {Object.values(commands)
-//             .filter(
-//               (command) =>
-//                 !searchQuery ||
-//                 command.config.aliases.includes(searchQuery) ||
-//                 command.help.description.toLowerCase().includes(searchQuery) ||
-//                 command.help.name.toLowerCase().includes(searchQuery)
-//             )
-//             .map((command) => (
-//               <CommandCard
-//                 transitionState={transitionState}
-//                 command={command}
-//               />
-//             ))}{" "}
-//         </div>{" "}
-//       </div>
-//     );
-//   }
-// }
