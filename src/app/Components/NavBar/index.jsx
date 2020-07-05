@@ -94,7 +94,7 @@ class NavBar extends React.PureComponent {
     } else {
       // Desktop Nav
       return (
-        <div>
+        <div style={{position: "relative"}}>
           <svg
             className="wave"
             xmlns="http://www.w3.org/2000/svg"
