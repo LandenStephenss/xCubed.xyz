@@ -46,7 +46,7 @@ module.exports = {
                   .join("\n")}\n${commit.removed
                   .map((a) => `- ${a}`)
                   .join("\n")}\n${commit.modified
-                  .map((a) => `+- ${a}`)
+                  .map((a) => `= ${a}`)
                   .join("\n")}\`\`\``
             )
             .join("\n\n")}`,
