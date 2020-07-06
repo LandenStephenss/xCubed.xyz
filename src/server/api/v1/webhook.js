@@ -41,13 +41,13 @@ module.exports = {
               (commit) =>
                 `\`${commit.id.slice(0, 7)}\`: **${
                   commit.message
-                }**${commit.added
-                  .map((a) => `+** ${a}**`)
+                }**\n\`\`\`diff\n${commit.added
+                  .map((a) => `+ ${a}`)
                   .join("\n")}\n${commit.removed
-                  .map((a) => `- **${a}**`)
+                  .map((a) => `- ${a}`)
                   .join("\n")}\n${commit.modified
-                  .map((a) => `+- **${a}**`)
-                  .join("\n")}`
+                  .map((a) => `+- ${a}`)
+                  .join("\n")}\`\`\``
             )
             .join("\n\n")}`,
           color: parseInt("7289DA", 16),
