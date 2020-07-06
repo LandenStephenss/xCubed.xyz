@@ -36,18 +36,20 @@ module.exports = {
           },
           description: `New Commit on [${req.body.repository.name}](${
             req.body.repository.svn_url
-          })\n${req.body.commits.map(
-            (commit) =>
-              `\`${commit.id.slice(0, 7)}\`: **${
-                commit.message
-              }**${commit.added
-                .map((a) => `+** ${a}**`)
-                .join("\n")}\n${commit.removed
-                .map((a) => `- **${a}**`)
-                .join("\n")}\n${commit.modified
-                .map((a) => `+- **${a}**`)
-                .join("\n")}`
-          )}`,
+          })\n${req.body.commits
+            .map(
+              (commit) =>
+                `\`${commit.id.slice(0, 7)}\`: **${
+                  commit.message
+                }**${commit.added
+                  .map((a) => `+** ${a}**`)
+                  .join("\n")}\n${commit.removed
+                  .map((a) => `- **${a}**`)
+                  .join("\n")}\n${commit.modified
+                  .map((a) => `+- **${a}**`)
+                  .join("\n")}`
+            )
+            .join("\n\n")}`,
           color: parseInt("7289DA", 16),
         },
       ],
