@@ -7,7 +7,7 @@ const Commands = lazy(() => import("./Pages/Commands"));
 const Staff = lazy(() => import("./Pages/Staff"));
 const Leaderboard = lazy(() => import("./Pages/Leaderboard"));
 const GuildSelector = lazy(() => import("./Pages/Dashboard"))
-
+const PrivacyPolicy = lazy(() => import("./Pages/Privacy"))
 import NavBar from "./Components/NavBar";
 import Footer from "./Components/Footer";
 import "./style.css";
@@ -24,6 +24,7 @@ export default () => {
               <Route component={() => <Commands />} path="/commands" />
               <Route component={() => <Staff />} path="/staff" />
               <Route component={() => <Leaderboard />} path="/leaderboard" />
+              <Route component={() => <PrivacyPolicy />} path="/privacy" />
               {/* <Route component={() => <GuildSelector />} path="/dashboard" /> */}
               {/* TODO; dashboard, admin panel, proper leaderboard pages!*/}
               {/* 404 Page TODO*/}
